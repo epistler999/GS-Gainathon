@@ -1,0 +1,72 @@
+
+<div class="container">
+    <div class="form-container">
+      <form  [formGroup]="profileForm" #basicTable>
+        <p>
+          <label for="name"> <b>Name</b> </label>
+          <input type="text" class="label-view"  formControlName="name" disabled>
+        </p>
+        <p>
+          <label for="email"><b>Email</b> </label>
+          <input type="text" class="label-view" formControlName="email" disabled>
+        </p>
+        <p>
+          <label for="points"><b>Credit Score</b> </label>
+          <input type="text" class="label-view"  formControlName="points" disabled>
+        </p>
+      </form> 
+    </div>
+  </div>
+  <div class="list-view">
+    <h1 class="table-headings">My List</h1>
+    <div *ngIf="ktData.length">
+      <nz-table
+      #basicTable
+      [nzData]="ktData"
+      [nzSize]="'small'"
+    >
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>KT Link</th>
+          <th>KT Description</th>
+        </tr>
+      </thead>
+      <tbody class="table-view">
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.kt_topic }}</td>
+          <td><a href="{{data.kt_link}}">{{ data.kt_link }}</a></td>
+          <td>{{ data.kt_desc }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+    </div>
+  </div>
+
+  <div class="list-view">
+    <h1 class="table-headings">My Item History</h1>
+    <div >
+      <nz-table
+      #basicTable
+      [nzData]="itemHistoryData"
+      [nzSize]="'small'"
+    >
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Item Cost</th>
+          <th>Item Count</th>
+        </tr>
+      </thead>
+      <tbody class="table-view">
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.item_name }}</td>
+          <td>{{ data.cost }}</td>
+          <td>{{ data.count }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+    </div>
+  </div>
+  
+  

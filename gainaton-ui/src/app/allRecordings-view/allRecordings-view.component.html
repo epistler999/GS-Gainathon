@@ -1,0 +1,27 @@
+<div class="grid-container">
+  <nz-card class="nz-card-class" nzHoverable [nzCover]="coverTemplate"
+    *ngFor="
+      let data of generalKTList
+        | paginate: { itemsPerPage: 3, currentPage: page }
+    "
+  >
+  <div>
+    <div class="card-link">
+      <a href="{{data.kt_link}}">Link</a>
+    </div>
+    <div class="card-desc">
+      {{ data.kt_desc }}
+    </div>
+  <div class="card-topic">
+    <b>{{ data.kt_topic }}</b>
+</div>
+  </div>
+       
+    <ng-template  #coverTemplate>
+      <img  class="img-class"  alt="example" src="{{data.kt_image_link}}" />
+    </ng-template>
+  </nz-card>
+</div>
+<div class="has-text-centered">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

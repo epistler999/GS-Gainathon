@@ -1,0 +1,41 @@
+<nz-table
+  #basicTable
+  [nzData]="leaderboardList"
+  [(nzPageIndex)]="pageIndex"
+  [(nzPageSize)]="pageSize"
+  [nzSize]="'small'"
+>
+  <thead >
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+       <th><button nz-button (click)='displayLeaderboard("score")'>Credit Score</button></th>
+      <th><button nz-button (click)='displayLeaderboard("count")'>KT Count</button></th> 
+      
+      <!-- <th (click)='displayLeaderboard("score")'>Credit Score</th>
+      <th (click)='displayLeaderboard("count")'>KT Count</th> -->
+    </tr>
+  </thead>
+  <tbody  class="leaderboard-view">
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.points }}</td>
+      <td>{{ data.kt_given }}</td>
+      <td ><a (click)="displayUserProfileWithEmail(data.email)">View</a></td>
+    </tr>
+  </tbody>
+</nz-table>s
+
+<nz-drawer
+  *ngIf="isVisible"
+  [(nzVisible)]="isVisible"
+  nzTitle="Edit Employee"
+  [nzWidth]="500"
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  (nzOnClose)="handleCancel()"
+>
+  <app-kt-detail-form [editEmployeeId]="editEmployeeId"></app-kt-detail-form>
+</nz-drawer>

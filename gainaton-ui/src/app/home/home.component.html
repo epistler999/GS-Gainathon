@@ -1,0 +1,67 @@
+<nz-layout class="layout">
+  <nz-sider nzCollapsible [nzCollapsedWidth]="0">
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item routerLinkActive="active">
+        <a [routerLink]="['/home', 'card-view']">
+          <span nz-icon nzType="container" nzTheme="outline"></span>
+          <span>All Recordings</span>
+        </a>
+      </li>
+      <li nz-menu-item  routerLinkActive="active">
+        <a [routerLink]="['/home', 'leaderboard']" >
+          <span nz-icon nzType="profile" nzTheme="outline"></span>
+          <span>Leaderboard</span>
+        </a>
+      </li>
+      <li nz-menu-item routerLinkActive="active">
+        <a [routerLink]="['/home', 'store']">
+          <span nz-icon nzType="container" nzTheme="outline"></span>
+          <span>Store</span>
+        </a>
+      </li>
+      <li nz-menu-item routerLinkActive="active">
+        <a [routerLink]="['/home', 'profile']">
+          <span nz-icon nzType="container" nzTheme="outline"></span>
+          <span>User Profile</span>
+        </a>
+      </li>
+      <li nz-menu-item routerLinkActive="active">
+        <a (click)="onLogout()">
+          <span nz-icon nzType="container" nzTheme="outline"></span>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nz-sider>
+
+  <nz-layout>
+    <nz-header class="header-title">
+      <div class="header-title-1">
+        <span _ngcontent-gba-c3="" class="gs-home-viewer__title"> Hi <b>{{ currUser }}</b>, Welcome to Gainsight!</span> 
+      </div>
+      <div class="header-title-2"> 
+      </div>
+    </nz-header>
+    <div class="sub-header-info">
+      <div class="sub-header-col1">
+        <button nz-button nzType="primary" (click)="onAddEmployee()">
+          Add Event
+        </button>
+      </div>
+    </div>
+    <div><router-outlet></router-outlet></div>
+  </nz-layout>
+</nz-layout>
+
+<nz-drawer
+  *ngIf="isVisible"
+  [(nzVisible)]="isVisible"
+  nzTitle="Add Event"
+  [nzWidth]="500"
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  (nzOnClose)="handleCancel()"
+>
+  <app-kt-detail-form [isAddEmployee]="isAddEmployee"></app-kt-detail-form>
+</nz-drawer>

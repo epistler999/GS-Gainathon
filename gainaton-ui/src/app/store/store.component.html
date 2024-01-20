@@ -1,0 +1,31 @@
+<div class="grid-container">
+  <nz-card class="nz-card-class" nzHoverable [nzCover]="coverTemplate"
+    *ngFor="
+      let data of inventoryList
+        | paginate: { itemsPerPage: 3, currentPage: page }
+    "
+  >
+      <div class="item-details">
+        <div class="card-topic">
+          <b>Item Name : </b>{{ data.item_name }}
+        </div>
+        <div class="card-desc">
+          <b>Item Count : </b>{{ data.item_count }}
+        </div>
+        <div class="card-desc">
+          <b>Item Cost : </b>{{ data.item_cost }}
+        </div>
+        <div  class="redeem-class">
+          <button nz-button nzType="primary" (click)="onRedeem(data.item_id)">Redeem</button>
+        </div>
+      </div>
+     
+    <ng-template #coverTemplate>
+      <img  class="img-class" alt="example" src={{data.item_link}} />
+    </ng-template>
+  </nz-card>
+</div>
+<div class="has-text-centered">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+

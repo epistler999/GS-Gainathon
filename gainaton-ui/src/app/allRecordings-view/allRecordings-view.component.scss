@@ -1,0 +1,44 @@
+.card-topic{
+    font-size: 20px;
+    font-weight: 300;
+    background-color: white;
+    padding: 5px;
+}
+.card-link{
+    font-size: 20px;
+    font-weight: 200;
+    background-color: white;
+    padding:5px;
+}
+.card-desc{
+    font-size: 20px;
+    font-weight: 200;
+    width: fit-content;
+    background-color: white;
+    padding: 5px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    margin: 20px;
+    width: 80em;
+    height: 30em;
+  }
+.nz-card-class{
+    margin: 20px;
+}  
+
+.grid-item {
+    text-align: center;
+    margin-top: 3rem;
+}
+.has-text-centered{
+    padding:3rem;
+}
+
+.img-class{
+    object-fit: fill;
+    max-width: 22rem;
+    max-height: 10rem;
+}

@@ -1,0 +1,51 @@
+<div class="col">
+  <form nz-form [formGroup]="userInput" (ngSubmit)="onSignUp()">
+    <br>
+    <img class="gainsight-header-logo" src="https://gainsight-public.s3.amazonaws.com/native/v1/img/gs_logo.png">
+    <br><br><br>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your name!">
+          <nz-input-group nzPrefixIcon="user">
+            <input
+              type="text"
+              nz-input
+              formControlName="uname"
+              placeholder="your name"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your email!">
+          <nz-input-group nzPrefixIcon="user">
+            <input
+              type="text"
+              nz-input
+              formControlName="uemail"
+              placeholder="your email"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input
+              type="password"
+              nz-input
+              formControlName="upassword"
+              placeholder="your password"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+    <button
+      nz-button
+      class="signup-form-button signup-form-margin"
+      nzType="primary"
+    >
+      Register
+    </button>
+    <a routerLink="/login"><strong>Already a member ! Login</strong></a>
+  </form>
+</div>
